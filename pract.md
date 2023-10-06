@@ -2,6 +2,18 @@
 
 ## Conceptos Cloud
 
+### VPC
+
+Amazon Virtual Private Cloud (Amazon VPC) es una sección lógicamente aislada del Cloud de AWS donde puedes lanzar recursos de AWS en una red virtual que tú defines. Tienes un control total sobre tu entorno de red virtual, incluida la selección de tu rango de direcciones IP, la creación de subredes y la configuración de tablas de rutas y gateways de red. Una Amazon Virtual Private Cloud (Amazon VPC) abarca todas las zonas de disponibilidad (AZ) de la región.
+
+Una subred es un rango de direcciones IP dentro de tu Amazon Virtual Private Cloud (Amazon VPC). Una subred abarca sólo una zona de disponibilidad (AZ) de la región.
+
+Amazon Virtual Private Cloud (Amazon VPC) abarca todas las zonas de disponibilidad (AZ) de la región, mientras que una subred abarca sólo una zona de disponibilidad (AZ) de la región
+
+### AWS Cost & Usage Report (AWS CUR)
+
+AWS Cost & Usage Report (AWS CUR) contiene el conjunto más completo de datos de costes y uso disponible. Puedes utilizar el AWS Cost & Usage Report (AWS CUR) para publicar tus informes de facturación de AWS en un bucket de Amazon Simple Storage Service (Amazon S3) de tu propiedad. Puedes recibir informes que desglosen tus costes por hora o mes, por producto o recurso de producto, o por etiquetas que tú mismo definas. AWS actualiza el informe en tu bucket una vez al día en formato de valores separados por comas (CSV).
+
 ### AWS CloudTrail
 
 Puedes utilizar CloudTrail para registrar, monitorizar y conservar la actividad de la cuenta relacionada con acciones en toda tu infraestructura de AWS. CloudTrail proporciona un historial de eventos de la actividad de tu cuenta de AWS, incluidas las acciones realizadas a través de la consola de administración de AWS, los SDK de AWS, las herramientas de línea de comandos y otros servicios de AWS.
@@ -12,6 +24,20 @@ Cómo funciona CloudTrail:
 ### AWS Config
 
 AWS Config es un servicio que te permite evaluar, auditar y valorar las configuraciones de tus recursos de AWS. Config monitoriza y registra continuamente las configuraciones de tus recursos de AWS y te permite automatizar la evaluación de las configuraciones registradas comparándolas con las configuraciones deseadas.
+
+Con AWS Config, puedes hacer lo siguiente:
+
+1. Evaluar tus configuraciones de recursos de AWS en función de los ajustes deseados
+
+2. Obtener una instantánea de las configuraciones actuales de los recursos soportados que están asociados a tu cuenta de AWS. 
+
+3. Recupera las configuraciones de uno o más recursos que existan en tu cuenta. 
+
+4. Recuperar configuraciones históricas de uno o más recursos. 
+
+5. Recibir una notificación cada vez que se cree, modifique o elimine un recurso. 
+
+6. Ver las relaciones entre recursos. Por ejemplo, puedes querer encontrar todos los recursos que utilizan un grupo de seguridad determinado.
 
 ### Amazon CloudWatch
 
@@ -28,6 +54,33 @@ Piensa en supervisión del rendimiento de los recursos, eventos y alertas; piens
 Piensa en actividad y auditoría específicas de la cuenta; piensa en CloudTrail.
 
 Piensa en el historial de cambios, la auditoría y el cumplimiento de recursos específicos; piensa en Config.
+
+### El AWS Well-Architected Framework
+
+proporciona orientación sobre la creación de infraestructuras seguras, de alto rendimiento, resistentes y eficientes para aplicaciones basadas en el Cloud. ***Basado en seis pilares***:
+
+- **excelencia operativa**
+- **seguridad**
+- **fiabilidad**
+- **eficiencia del rendimiento**
+- **optimización de costes**
+- **sostenibilidad**
+
+el Framework proporciona un enfoque coherente para que clientes y socios evalúen arquitecturas e implanten diseños que escalen con el tiempo.
+
+### Amazon Route 53
+
+Amazon Route 53 es un servicio web de Sistema de Nombres de Dominio (DNS) en el Cloud altamente disponible y escalable. Está diseñado para ofrecer a desarrolladores y empresas una forma extremadamente fiable y rentable de dirigir a los usuarios finales a las aplicaciones de Internet, traduciendo nombres como www.example.com en direcciones IP numéricas como 192.0.2.1, que los ordenadores utilizan para conectarse entre sí.
+
+Si tu aplicación está alojada en varias regiones de AWS, puedes utilizar la política de enrutamiento basado en la latencia para mejorar el rendimiento de tus usuarios, sirviendo sus solicitudes desde la región de AWS que proporcione la latencia más baja. Para utilizar el enrutamiento basado en la latencia, crea registros de latencia para tus recursos en varias regiones de AWS. Cuando Amazon Route 53 recibe una consulta DNS para tu dominio o subdominio (ejemplo.com o acme.ejemplo.com), determina para qué regiones de AWS has creado registros de latencia, determina qué región proporciona al usuario la latencia más baja y, a continuación, selecciona un registro de latencia para esa región. Amazon Route 53 responde con el valor del registro seleccionado, como la dirección IP de un servidor web.
+
+Visión general de la política de enrutamiento de Amazon Route 53:
+
+![img](img/pol-enru.jpg)
+
+### Amazon CloudFront con Amazon Route 53
+
+AWS aloja los servicios Amazon CloudFront y Amazon Route 53 en una red distribuida de servidores proxy en centros de datos de todo el mundo denominados ubicaciones de borde (Edge Locations). El uso de la red global de Amazon de ubicaciones de borde para la entrega de aplicaciones y el servicio DNS desempeña un papel importante en la construcción de una defensa integral contra ataques DDoS para tus aplicaciones web dinámicas.
 
 ### Amazon Relational Database Service (Amazon RDS)
 
@@ -55,15 +108,46 @@ Se refiere a la capacidad de un sistema para recuperarse de las interrupciones d
 **Escalabilidad**
 La escalabilidad es la medida de la capacidad de un sistema de crecer para adaptarse a un aumento de la demanda, o reducirse ante una demanda decreciente.
 
+### Servicios Cloud
+
+Una de las principales ventajas de los servicios en el Cloud es la capacidad que te ofrece de optimizar los costes para adaptarlos a tus necesidades, incluso cuando éstas cambian. Los servicios de AWS no tienen dependencias complejas ni requisitos de licencia, por lo que puedes obtener exactamente lo que necesitas para crear soluciones innovadoras y rentables utilizando la tecnología más reciente.
+
+Hay tres factores fundamentales del coste con AWS: computación, almacenamiento y transferencia de datos salientes. Estas características varían algo, dependiendo del producto de AWS y del modelo de precios que elijas. Los datos salientes a Internet desde todas las regiones de AWS se facturan a tarifas de transferencia de datos escalonadas específicas de cada región. La transferencia de datos entrantes a todas las regiones de AWS desde Internet es gratuita.
+
 ### Grupo de seguridad
 
+Un grupo de seguridad actúa como un firewall virtual para tus instancias EC2 para controlar el tráfico entrante y saliente. Las reglas de entrada controlan el tráfico entrante hacia tu instancia, y las reglas de salida controlan el tráfico saliente desde tu instancia. Los grupos de seguridad sólo tienen reglas de "permitir". No puedes utilizar los grupos de seguridad para bloquear usuarios de determinadas geografías.
 Visión general del grupo de seguridad:
 ![grupo_seguridad](img/grupos.jpeg)
+
+El grupo de seguridad actúa como firewall a nivel de instancia, mientras que la lista de control de acceso a la red (NACL) actúa como firewall a nivel de subred
 
 ### lista de control de acceso a la red (NACL)
 
 Visión general de la lista de control de acceso a la red (NACL):
 ![nacl](img/nacl.jpeg)
+
+### AWS CloudHSM
+
+AWS CloudHSM es un módulo de seguridad de hardware (HSM) basado en el Cloud que te permite generar y utilizar fácilmente tus claves de cifrado en el Cloud de AWS. Con CloudHSM, puedes gestionar tus claves de cifrado utilizando HSM validados por FIPS 140-2 Nivel 3. Se trata de un servicio totalmente gestionado que automatiza por ti las tareas administrativas que requieren mucho tiempo, como el aprovisionamiento de hardware, la aplicación de parches de software, la alta disponibilidad y las copias de seguridad. CloudHSM no puede utilizarse para evitar ataques distribuidos de denegación de servicio (DDoS).
+
+### AWS CloudFormation
+
+AWS CloudFormation te permite utilizar lenguajes de programación o un simple archivo de texto para modelar y aprovisionar, de forma automatizada y segura, todos los recursos necesarios para tus aplicaciones en todas las regiones y cuentas. Piensa en infraestructura como código; piensa en CloudFormation. CloudFormation no proporciona el estado general de disponibilidad de los servicios de AWS para todas las regiones.
+
+### AWS Health Dashboard
+
+Estado del servicio es el único lugar para conocer la disponibilidad y el funcionamiento de los servicios de AWS. Puedes ver el estado general de los servicios de AWS, y puedes iniciar sesión para ver comunicaciones personalizadas sobre tu cuenta u organización de AWS en particular.
+
+### AWS Health Dashboard Estado de su cuenta
+
+AWS Health Dashboard - Estado de su cuenta proporciona alertas y orientación para remediarlo cuando AWS experimenta eventos que pueden afectarte.
+
+AWS Health Dashboard - Estado de su cuenta, las alertas se activan con los cambios en la salud de tus recursos de AWS, proporcionándote visibilidad de los eventos, y orientación para ayudar a diagnosticar y resolver rápidamente los problemas.
+
+Alerta de examen:
+
+Mientras que el AWS Health Dashboard - Estado del servicio muestra el estado general de los servicios de AWS, el AWS Health Dashboard - Estado de su cuenta te ofrece una visión personalizada del rendimiento y la disponibilidad de los servicios de AWS subyacentes a tus recursos de AWS.
 
 ### AWS Basic Support
 
@@ -97,24 +181,17 @@ Los socios consultores de APN son empresas de servicios profesionales que ayudan
 
 Los socios tecnológicos de APN proporcionan hardware, servicios de conectividad o soluciones de software que se alojan en el Cloud de AWS o se integran con ella. Los socios tecnológicos de APN no pueden ayudar a migrar a AWS ni a administrar aplicaciones en el Cloud de AWS.
 
-### AWS Direct Connect
+### AWS Compute Optimizer
 
-AWS Direct Connect es una solución de servicio en el Cloud que facilita el establecimiento de una conexión de red dedicada desde tus instalaciones a AWS. Puedes utilizar AWS Direct Connect para establecer una interfaz virtual privada desde tu red local directamente a tu Amazon VPC, proporcionándote una conexión de red privada de gran ancho de banda entre tu red y tu VPC. Esta conexión es privada y no va por el Internet público. Se tarda al menos un mes en establecer esta conexión física.
+Te ayuda a identificar las configuraciones óptimas de los recursos de AWS, como los tipos de instancias de Amazon EC2, las configuraciones de volúmenes de Amazon EBS y los tamaños de memoria de las funciones de AWS Lambda, utilizando el aprendizaje automático para analizar las métricas de utilización históricas. AWS Compute Optimizer ofrece recomendaciones para tipos seleccionados de instancias EC2, grupos EC2 Auto Scaling, volúmenes Amazon EBS y funciones AWS Lambda.
 
-Cómo funciona AWS Direct Connect:
-![direct_connect](img/direct.png)
+AWS Compute Optimizer calcula una puntuación de riesgo de rendimiento individual para cada dimensión de recurso de la instancia recomendada, incluyendo CPU, memoria, rendimiento de EBS, IOPS de EBS, rendimiento de disco, rendimiento de disco, rendimiento de red y paquetes de red por segundo (PPS).
 
-### Amazon VPC Endpoint
+AWS Compute Optimizer proporciona recomendaciones de tipo y tamaño de instancia EC2 para los grupos de Autoescalado EC2 con un tamaño de grupo fijo, lo que significa que el deseado, el mínimo y el máximo se establecen en el mismo valor y no tienen ninguna política de escalado adjunta.
 
-Amazon VPC Endpoint te permite conectar de forma privada tu VPC a los servicios de AWS compatibles y a los servicios de punto final de VPC impulsados por AWS PrivateLink sin necesidad de una puerta de enlace a Internet, un dispositivo NAT, una conexión VPN o una conexión AWS Direct Connect. Las instancias de tu VPC no necesitan direcciones IP públicas para comunicarse con los recursos del servicio. El tráfico entre tu VPC y el otro servicio no sale de la red de Amazon. VPC Endpoint no puede utilizarse para conectar de forma privada el centro de datos local al Cloud de AWS.
+AWS Compute Optimizer admite recomendaciones de IOPS y rendimiento para volúmenes de propósito general (SSD) (gp3) y recomendaciones de IOPS para volúmenes de IOPS provisionados (io1 e io2).
 
-### Internet Gateway (Puerta de enlace de internet)
-
-Internet Gateway es un componente de la VPC de escala horizontal, redundante y de alta disponibilidad que permite la comunicación entre tu VPC e Internet. Una puerta de enlace a Internet tiene dos finalidades: proporcionar un destino en las tablas de rutas de tu VPC para el tráfico enrutable por Internet y realizar la traducción de direcciones de red (NAT) para las instancias. La puerta de enlace a Internet no puede utilizarse para conectar de forma privada el centro de datos local al Cloud de AWS.
-
-### VPN Site-to-Site
-
-VPN Site-to-Site crea una conexión segura entre tu centro de datos o sucursal y tus recursos en el Cloud de AWS. Esta conexión va a través del Internet público.
+AWS Compute Optimizer te ayuda a optimizar dos categorías de funciones Lambda. La primera categoría incluye funciones Lambda que pueden estar sobreaprovisionadas en tamaños de memoria. La segunda categoría incluye funciones Lambda de cálculo intensivo que pueden beneficiarse de potencia de CPU adicional.
 
 ## Tecnologia
 
@@ -213,12 +290,47 @@ Beneficios de Amazon Polly:
 
 ![polly](img/polly.jpeg)
 
+### Amazon Rekognition
+
+No puedes utilizar Amazon Rekognition para cambiar el tamaño de las imágenes y crear miniaturas.
+
+Con Amazon Rekognition, puedes identificar objetos, personas, texto, escenas y actividades en imágenes y vídeos, así como detectar cualquier contenido inapropiado. Amazon Rekognition también proporciona capacidades de análisis facial y búsqueda facial de gran precisión que puedes utilizar para detectar, analizar y comparar rostros para una amplia variedad de casos de uso de verificación de usuarios, recuento de personas y seguridad pública.
+
+Casos de uso de Amazon Rekognition:
+![rekog_cu](img/cu_rekog.jpg)
+
 ### AWS X-Ray
 
 Puedes utilizar AWS X-Ray para analizar y depurar aplicaciones distribuidas y sin servidor, como las creadas con una arquitectura de microservicios. Con X-Ray, puedes comprender el rendimiento de tu aplicación y sus servicios subyacentes para identificar y solucionar la causa raíz de los problemas y errores de rendimiento.
 
 Cómo funciona AWS X-Ray:
 ![xray](img/xray.png)
+
+### Amazon FSx para Windows File Server
+
+Amazon FSx para Windows File Server proporciona almacenamiento de archivos totalmente gestionado, altamente fiable y escalable, accesible a través del protocolo estándar del sector Service Message Block (SMB). Está basado en Windows Server y ofrece una amplia gama de funciones administrativas, como cuotas de usuario, restauración de archivos de usuario final e integración con Microsoft Active Directory (AD).
+
+Para soportar un amplio espectro de cargas de trabajo, Amazon FSx proporciona altos niveles de rendimiento, IOPS y latencias constantes por debajo del milisegundo. Se puede acceder a Amazon FSx desde instancias y dispositivos informáticos Windows, Linux y macOS.
+
+Para aplicaciones basadas en Windows, Amazon FSx proporciona servidores de archivos Windows totalmente administrados con características y rendimiento optimizados para cargas de trabajo de aplicaciones críticas para el negocio "lift-and-shift", incluidos directorios personales (recursos compartidos de usuario), flujos de trabajo multimedia y aplicaciones ERP. Es accesible desde instancias Windows y Linux a través del protocolo SMB.
+
+### Amazon EventBridge
+
+Amazon EventBridge es un servicio que proporciona acceso en tiempo real a los cambios en los datos de los servicios de AWS, tus propias aplicaciones y aplicaciones de software como servicio (SaaS) sin necesidad de escribir código. El Programador de Amazon EventBridge es un programador de tareas sin servidor que simplifica la creación, ejecución y administración de millones de programaciones a través de los servicios de AWS sin aprovisionar ni administrar la infraestructura subyacente.
+
+### Amazon Athena
+
+Amazon Athena es un servicio de consultas interactivas que facilita el análisis de datos en Amazon S3 utilizando SQL estándar. Amazon Athena no tiene servidor, por lo que no hay infraestructura que administrar, y sólo pagas por las consultas que ejecutas.
+
+### AWS Global Accelerator
+
+AWS Global Accelerator es un servicio que mejora la disponibilidad y el rendimiento de tus aplicaciones con usuarios locales o globales. Proporciona direcciones IP estáticas que actúan como punto de entrada fijo a los puntos finales de tus aplicaciones en una o varias regiones de AWS, como tus balanceadores de carga de aplicaciones, balanceadores de carga de red o instancias de Amazon EC2. El Acelerador Global de AWS utiliza la red global de AWS para optimizar la ruta de tus usuarios a tus aplicaciones, mejorando el rendimiento de tu tráfico hasta en un 60%.
+
+AWS Global Accelerator mejora el rendimiento de una amplia gama de aplicaciones a través de TCP o UDP mediante la transferencia de paquetes en el borde a aplicaciones que se ejecutan en una o más regiones de AWS. El Acelerador Global de AWS es adecuado para casos de uso no HTTP, como juegos (UDP), IoT (MQTT) o Voz sobre IP, así como para casos de uso HTTP que requieran específicamente direcciones IP estáticas o una conmutación por error regional rápida y determinista.
+
+### Usuario Root
+
+La dirección de correo electrónico y la contraseña utilizadas para registrarse en los servicios de AWS son las credenciales de la cuenta de usuario raíz de AWS. La cuenta de usuario raíz, por tanto, tiene permisos completos sobre todos los recursos de AWS bajo esa cuenta. No es posible restringir el acceso a la cuenta de usuario raíz. Como práctica recomendada, debe establecerse la autenticación multifactor (MFA) en la cuenta de usuario raíz. La contraseña de la cuenta de usuario raíz puede cambiarse tras la creación de la cuenta. Para todos los empleados que realicen diversas tareas administrativas, crea cuentas de usuario individuales utilizando AWS IAM, y concede los permisos administrativos necesarios.
 
 ### Host dedicado
 
@@ -269,6 +381,8 @@ Un almacén de instancia proporciona almacenamiento temporal a nivel de bloque p
 
 AWS Storage Gateway es un servicio de almacenamiento en el Cloud híbrido que conecta tus entornos locales existentes con el Cloud de AWS. Los clientes utilizan AWS Storage Gateway para simplificar la gestión del almacenamiento y reducir los costes en casos clave de uso del almacenamiento en el Cloud híbrido.
 
+El servicio AWS Storage Gateway proporciona tres tipos diferentes de puertas de enlace (Tape Gateway, File Gateway y Volume Gateway) que conectan sin problemas las aplicaciones locales con el almacenamiento en el Cloud, almacenando los datos en caché local para un acceso de baja latencia.
+
 ### AWS Database Migration Service (AWS DMS)
 
 AWS Database Migration Service (AWS DMS) te ayuda a migrar bases de datos a AWS de forma rápida y segura. La base de datos de origen permanece totalmente operativa durante la migración, minimizando el tiempo de inactividad de las aplicaciones que dependen de la base de datos. El Servicio de Migración de Bases de Datos de AWS (AWS DMS) puede migrar tus datos desde y hacia las bases de datos comerciales y de código abierto más utilizadas.
@@ -297,6 +411,120 @@ AWS tiene el concepto de región, que es una ubicación física en todo el mundo
 ### Zona de disponibildad
 
 Una zona de disponibilidad (AZ) es uno o más centros de datos discretos con energía, redes y conectividad redundantes en una región de AWS. Todas las AZ de una región de AWS están interconectadas con redes de gran ancho de banda y baja latencia, a través de fibra metropolitana dedicada totalmente redundante, que proporciona redes de alto rendimiento y baja latencia entre las AZ.
+
+### AWS Storage Gateway
+
+AWS Storage Gateway es un servicio de almacenamiento en el Cloud híbrido que conecta tus entornos locales existentes con el Cloud de AWS. Los clientes utilizan Storage Gateway para simplificar la gestión del almacenamiento y reducir costes en casos clave de uso del almacenamiento en el Cloud híbrido. Entre ellos se incluyen trasladar copias de seguridad en cinta al Cloud, reducir el almacenamiento local con recursos compartidos de archivos respaldados por el Cloud, proporcionar acceso de baja latencia a datos en AWS para aplicaciones locales, así como diversos casos de uso de migración, archivado, procesamiento y recuperación de desastres.
+
+El servicio AWS Storage Gateway proporciona tres tipos diferentes de puertas de enlace (Tape Gateway, File Gateway y Volume Gateway) que conectan sin problemas las aplicaciones locales con el almacenamiento en el Cloud, almacenando los datos en caché local para un acceso de baja latencia.
+
+### Amazon Elastic Container Registry (ECR)
+
+Amazon Elastic Container Registry (Amazon ECR) puede utilizarse para almacenar, administrar e implementar imágenes de contenedores Docker. Amazon Elastic Container Registry (Amazon ECR) elimina la necesidad de operar tus repositorios de contenedores. Puedes extraer tus imágenes Docker de Amazon Elastic Container Registry (Amazon ECR) y ejecutarlas en Amazon Elastic Container Service (Amazon ECS).
+
+### Amazon MQ
+
+Amazon MQ es un servicio administrado de intermediario de mensajes para Apache ActiveMQ y RabbitMQ que facilita la configuración y el funcionamiento de los intermediarios de mensajes en AWS. Amazon MQ reduce tus responsabilidades operativas al administrar por ti el aprovisionamiento, la configuración y el mantenimiento de los intermediarios de mensajes. Como Amazon MQ se conecta a tus aplicaciones actuales con API y protocolos estándar del sector, puedes migrar fácilmente a AWS sin tener que reescribir el código.
+
+Si utilizas mensajería con aplicaciones existentes y quieres trasladar la funcionalidad de mensajería al Cloud de forma rápida y sencilla, AWS te recomienda que consideres Amazon MQ. Es compatible con las API y los protocolos estándar del sector, por lo que puedes pasar de cualquier intermediario de mensajes basado en estándares a Amazon MQ sin reescribir el código de mensajería de tus aplicaciones. Si estás creando aplicaciones totalmente nuevas en el Cloud, AWS te recomienda que consideres Amazon SQS y Amazon SNS.
+
+### AWS Local Zones
+
+AWS Local Zones te permiten utilizar determinados servicios de AWS, como servicios informáticos y de almacenamiento, más cerca de más usuarios finales, proporcionándoles acceso de muy baja latencia a las aplicaciones que se ejecutan localmente. Las AWS Local Zones también están conectadas a la región matriz a través de la red privada redundante y de gran ancho de banda de Amazon, lo que proporciona a las aplicaciones que se ejecutan en las AWS Local Zones un acceso rápido, seguro y sin interrupciones al resto de servicios de AWS.
+
+Deberías utilizar las AWS Local Zones para implementar cargas de trabajo más cerca de tus usuarios finales para requisitos de baja latencia. Las AWS Local Zones tienen su conexión a Internet y admiten AWS Direct Connect, por lo que los recursos creados en la Zona Local pueden servir a los usuarios finales locales con comunicaciones de muy baja latencia.
+
+### AWS Wavelength
+
+AWS Wavelength extiende el Cloud de AWS a una red global de Edge Locations 5G para permitir a los desarrolladores innovar y crear toda una nueva clase de aplicaciones que requieren una latencia ultrabaja. Las zonas Wavelength proporcionan una conexión segura y de gran ancho de banda a la región AWS matriz, lo que permite a los desarrolladores conectarse sin problemas a toda la gama de servicios de la región AWS a través de las mismas API y conjuntos de herramientas.
+
+### AWS Fargate
+
+AWS Fargate es un motor informático sin servidor para contenedores. Funciona tanto con Amazon Elastic Container Service (Amazon ECS) como con Amazon Elastic Kubernetes Service (Amazon EKS). AWS Fargate facilita que te centres en crear tus aplicaciones. AWS Fargate elimina la necesidad de aprovisionar y administrar servidores, te permite especificar y pagar recursos por aplicación, y mejora la seguridad mediante el aislamiento de aplicaciones por diseño. AWS Fargate asigna la cantidad adecuada de cómputo, eliminando la necesidad de elegir instancias y escalar la capacidad del clúster. Sólo pagas por los recursos necesarios para ejecutar tus contenedores, por lo que no hay que sobreaprovisionar ni pagar por servidores adicionales. AWS Fargate ejecuta cada tarea o pod en su núcleo, proporcionando a las tareas y pods su propio entorno informático aislado. Esto permite que tu aplicación tenga un aislamiento de la carga de trabajo y una seguridad mejorada por diseño.
+
+### AWS Systems Manager Session Manager
+
+AWS Systems Manager Session Manager es un servicio totalmente gestionado que te proporciona una experiencia interactiva de shell y CLI basada en navegador. Ayuda a proporcionar una gestión de instancias segura y auditable sin necesidad de abrir puertos de entrada, mantener hosts bastión y administrar claves SSH. AWS Systems Manager Session Manager ayuda a permitir el normativa de las políticas corporativas que requieren un acceso controlado a las instancias, aumentar la seguridad y la auditabilidad del acceso a las instancias, a la vez que proporciona simplicidad y acceso multiplataforma a las instancias a los usuarios finales.
+
+### AWS Service Catalog
+
+AWS Service Catalog permite a las organizaciones crear y administrar catálogos de servicios de TI aprobados para su uso en AWS. Estos servicios de TI pueden incluir desde imágenes de máquinas virtuales, servidores, software y bases de datos hasta arquitecturas completas de aplicaciones multinivel.
+
+## Seguridad
+
+### Gestión del rendimiento y la capacidad
+
+El AWS Cloud Adoption Framework (AWS CAF) aprovecha la experiencia y las mejores prácticas de AWS para ayudarte a transformar digitalmente y acelerar tus resultados empresariales mediante el uso innovador de AWS. Utiliza el CAF de AWS para identificar y priorizar las oportunidades de transformación, evaluar y mejorar tu preparación para el Cloud y evolucionar iterativamente tu hoja de ruta de transformación.
+
+AWS CAF agrupa sus capacidades en seis perspectivas: Negocio, Personas, Gobernanza, Plataforma, Seguridad y Operaciones. Cada perspectiva comprende un conjunto de capacidades que las partes interesadas relacionadas funcionalmente poseen o gestionan en su viaje de transformación del Cloud.
+
+La perspectiva de operaciones ayuda a garantizar que tus servicios en el Cloud se prestan a un nivel que satisface las necesidades de tu negocio. La gestión del rendimiento y la capacidad bajo la perspectiva de Operaciones forma parte del AWS Cloud Adoption Framework (AWS CAF)
+
+AWS Cloud Adoption Framework (AWS CAF) - Capacidades fundacionales:
+![adop](img/adop.png)
+
+### Amazon Inspector
+
+Amazon Inspector es un servicio automatizado de evaluación de la seguridad que ayuda a mejorar la seguridad y la normativa de las aplicaciones desplegadas en AWS. Amazon Inspector evalúa automáticamente las aplicaciones en busca de exposición, vulnerabilidades y desviaciones de las mejores prácticas.
+
+### Usuario
+
+Las claves de acceso son credenciales a largo plazo para un usuario de IAM o el usuario raíz de la cuenta de AWS. Puedes utilizar claves de acceso para firmar solicitudes programáticas a la CLI de AWS o a la API de AWS (directamente o utilizando el SDK de AWS). Las claves de acceso constan de dos partes: un ID de clave de acceso (por ejemplo, AKIAIOSFODNN7EXAMPLE) y una clave de acceso secreta (por ejemplo, wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY). Al igual que el nombre de usuario y la contraseña, debes utilizar conjuntamente el ID de la clave de acceso y la clave de acceso secreta para autenticar tus solicitudes. Las claves de acceso son secretas, igual que una contraseña. Nunca debes compartirlas.
+
+### Rol
+
+Un rol IAM es similar a un usuario IAM, en el sentido de que es una identidad AWS con políticas de permisos que determinan lo que la identidad puede y no puede hacer en AWS. Sin embargo, en lugar de estar asociado únicamente a una persona, un rol está pensado para que pueda ser asumido por cualquiera que lo necesite.
+
+### Grupo de usuarios
+
+ Un grupo de usuarios IAM es un conjunto de usuarios IAM. Los grupos te permiten especificar permisos para varios usuarios, lo que puede facilitar la gestión de los permisos de esos usuarios.
+
+### Politica
+
+Gestionas el acceso en AWS creando políticas y asociándolas a identidades IAM (usuarios, grupos de usuarios o roles) o recursos AWS. Una política es un objeto de AWS que, cuando se asocia a una identidad o recurso, define sus permisos.
+
+Las claves de acceso no están vinculadas al rol IAM, al grupo IAM o a la política de AWS. Así que las tres opciones son incorrectas.
+
+### AWS Direct Connect
+
+AWS Direct Connect es una solución de servicio en el Cloud que facilita el establecimiento de una conexión de red dedicada desde tus instalaciones a AWS. Puedes utilizar AWS Direct Connect para establecer una interfaz virtual privada desde tu red local directamente a tu Amazon VPC, proporcionándote una conexión de red privada de gran ancho de banda entre tu red y tu VPC. Esta conexión es privada y no va por el Internet público. Se tarda al menos un mes en establecer esta conexión física.
+
+Cómo funciona AWS Direct Connect:
+![direct_connect](img/direct.png)
+
+### Amazon VPC Endpoint
+
+Amazon VPC Endpoint te permite conectar de forma privada tu VPC a los servicios de AWS compatibles y a los servicios de punto final de VPC impulsados por AWS PrivateLink sin necesidad de una puerta de enlace a Internet, un dispositivo NAT, una conexión VPN o una conexión AWS Direct Connect. Las instancias de tu VPC no necesitan direcciones IP públicas para comunicarse con los recursos del servicio. El tráfico entre tu VPC y el otro servicio no sale de la red de Amazon. VPC Endpoint no puede utilizarse para conectar de forma privada el centro de datos local al Cloud de AWS.
+
+### Internet Gateway (Puerta de enlace de internet)
+
+Internet Gateway es un componente de la VPC de escala horizontal, redundante y de alta disponibilidad que permite la comunicación entre tu VPC e Internet. Una puerta de enlace a Internet tiene dos finalidades: proporcionar un destino en las tablas de rutas de tu VPC para el tráfico enrutable por Internet y realizar la traducción de direcciones de red (NAT) para las instancias. La puerta de enlace a Internet no puede utilizarse para conectar de forma privada el centro de datos local al Cloud de AWS.
+
+### VPN Site-to-Site
+
+VPN Site-to-Site crea una conexión segura entre tu centro de datos o sucursal y tus recursos en el Cloud de AWS. Esta conexión va a través del Internet público.
+
+### AWS Web Application Firewall (AWS WAF)
+
+AWS Web Application Firewall (AWS WAF) es un firewall de aplicaciones web que ayuda a proteger las aplicaciones web de los ataques permitiéndote configurar reglas que permiten, bloquean o monitorizan (cuentan) las solicitudes web en función de las condiciones que definas. Estas condiciones incluyen direcciones IP, cabeceras HTTP, cuerpo HTTP, cadenas URI, inyección SQL y scripts entre sitios. Puedes utilizar la regla de coincidencia basada en la dirección IP para bloquear zonas geográficas específicas. La precisión de la base de datos de búsqueda de direcciones IP por países varía según la región. Según pruebas recientes, AWS menciona que la precisión global del mapeo de dirección IP a país es del 99,8%.
+
+### La seguridad y la normativa
+
+es una responsabilidad compartida entre AWS y el cliente. Este modelo compartido puede ayudar a aliviar la carga operativa del cliente, ya que AWS opera, gestiona y controla los componentes, desde el sistema operativo del host y la capa de virtualización hasta la seguridad física de las instalaciones en las que opera el servicio.
+
+- **AWS**:
+
+  - **seguridad del Cloud**: Esto abarca sus elementos de infraestructura global, incluidas las regiones, las zonas de disponibilidad (AZ) y las Ubicaciones de Borde.
+
+- **Cliente**:
+
+  - **Cifrado de bases de datos**: Según el modelo de responsabilidad compartida de AWS, los clientes son responsables de la gestión de sus datos, incluido el cifrado de los mismos.
+
+  - **Gestion de parches**: el cliente es responsable de la seguridad "en" el Cloud. Los clientes que despliegan una instancia de Amazon EC2 son responsables de la gestión del sistema operativo invitado (incluidas las actualizaciones y los parches de seguridad), de cualquier software de aplicación o utilidad instalada por el cliente en las instancias, y de la configuración del firewall proporcionado por AWS (denominado grupo de seguridad) en cada instancia.
+
+### Red de socios de AWS (APN)
+
+Las organizaciones pueden obtener ayuda de la red de socios de AWS (APN) para identificar los servicios de AWS adecuados para crear soluciones en el Cloud de AWS. La red de socios de AWS (APN) es el programa global de socios para empresas de tecnología y consultoría que aprovechan Amazon Web Services para crear soluciones y servicios para los clientes.
 
 ## Costos
 
@@ -392,7 +620,7 @@ Te ayuda a administrar centralmente la facturación; controlar el acceso, la nor
 
 AWS Shield Standard te defiende contra los ataques DDoS más comunes y frecuentes de la capa de red y transporte dirigidos a tu sitio web o aplicaciones. Aunque AWS Shield Standard ayuda a proteger a todos los clientes de AWS, obtienes mejor protección si utilizas Amazon CloudFront y Amazon Route 53. Todos los clientes de AWS se benefician de las protecciones automáticas de AWS Shield Standard, sin cargo adicional.
 
-### AWS Web Application Firewall (AWS WAF)
+### AWS Web Application Firewall(AWS WAF)
 
 AWS WAF es un firewall de aplicaciones web que te permite monitorizar las solicitudes HTTP(S) que se reenvían a una distribución de Amazon CloudFront, una API de Amazon API Gateway o un Application Load Balancer. AWS WAF cobra en función del número de listas de control de acceso web (ACL web) que crees, del número de reglas que añadas por ACL web y del número de solicitudes web que recibas (no es un servicio gratuito).
 
@@ -420,3 +648,10 @@ La Capa 3 es la capa de Red y en ella se decide qué ruta física seguirán los 
 
 La Capa 4 es la capa de Transporte y en ella se produce la transmisión de datos mediante los protocolos TCP o UDP. AWS Shield ofrece protección en esta capa. WAF no ofrece protección en esta capa.
 
+### Política de uso aceptable de AWS
+
+La Política de uso aceptable describe los usos prohibidos de los servicios web ofrecidos por Amazon Web Services, Inc. y sus filiales (los "Servicios") y el sitio web ubicado en http://aws.amazon.com (el "Sitio AWS"). Esta política está presente en https://aws.amazon.com/aup/ y es actualizada en función de las necesidades por AWS.
+
+### El AWS Well-Architected Framework
+
+proporciona orientación sobre la creación de infraestructuras seguras, de alto rendimiento, resistentes y eficientes para aplicaciones basadas en el Cloud. Basado en seis pilares -excelencia operativa, seguridad, fiabilidad, eficiencia del rendimiento, optimización de costes y sostenibilidad-, el Framework proporciona un enfoque coherente para que clientes y socios evalúen arquitecturas e implanten diseños que escalen con el tiempo.
