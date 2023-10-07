@@ -2,6 +2,16 @@
 
 ## Conceptos Cloud
 
+### Fundamentos del Cloud
+
+Cloud Foundations proporciona una ruta guiada para ayudar a los clientes a implementar, configurar y proteger sus nuevas cargas de trabajo, garantizando al mismo tiempo que están preparados para las operaciones continuas en el Cloud. Cloud Foundations ayuda a los clientes a navegar a través de las decisiones que necesitan tomar mediante Servicios de AWS, Soluciones de AWS, Soluciones de socios y Orientación.
+
+### Amazon Machine Image (AMI)
+
+Una Amazon Machine Image (AMI) proporciona la información necesaria para lanzar una instancia. Debes especificar una Amazon Machine Image (AMI) cuando lances una instancia. Puedes lanzar varias instancias desde una única AMI cuando necesites varias instancias con la misma configuración.
+
+La Amazon Machine Image (AMI) debe estar en la misma región que la de la instancia de Amazon EC2 que se va a lanzar. Si la Amazon Machine Image (AMI) existe en una región diferente, puedes copiar esa Amazon Machine Image (AMI) a la región en la que deseas lanzar la instancia EC2. La región de la Amazon Machine Image (AMI) no influye en el rendimiento de la instancia de Amazon EC2.
+
 ### VPC
 
 Amazon Virtual Private Cloud (Amazon VPC) es una sección lógicamente aislada del Cloud de AWS donde puedes lanzar recursos de AWS en una red virtual que tú defines. Tienes un control total sobre tu entorno de red virtual, incluida la selección de tu rango de direcciones IP, la creación de subredes y la configuración de tablas de rutas y gateways de red. Una Amazon Virtual Private Cloud (Amazon VPC) abarca todas las zonas de disponibilidad (AZ) de la región.
@@ -20,6 +30,8 @@ Puedes utilizar CloudTrail para registrar, monitorizar y conservar la actividad 
 
 Cómo funciona CloudTrail:
 ![como_funciona_cloud_trail](img/Product-Page-Diagram-AWSX-CloudTrail_How-it-Works.d2f51f6e3ec3ea3b33d0c48d472f0e0b59b46e59.png)
+
+AWS CloudTrail es un servicio que permite la gobernanza, la normativa, la auditoría operativa y la auditoría de riesgos de tu cuenta de AWS. Con AWS CloudTrail, puedes registrar, monitorizar continuamente y conservar la actividad de la cuenta relacionada con acciones en toda tu infraestructura de AWS. AWS CloudTrail proporciona un historial de eventos de la actividad de tu cuenta de AWS, incluidas las acciones realizadas a través de la consola de administración de AWS, los SDK de AWS, las herramientas de línea de comandos y otros servicios de AWS.
 
 ### AWS Config
 
@@ -43,6 +55,12 @@ Con AWS Config, puedes hacer lo siguiente:
 
 Amazon CloudWatch es un servicio de monitorización y observabilidad creado para ingenieros DevOps, desarrolladores, ingenieros de fiabilidad de sitios (SRE) y administradores de TI. CloudWatch proporciona datos y perspectivas procesables para monitorizar aplicaciones, responder a cambios de rendimiento en todo el sistema, optimizar la utilización de recursos y obtener una visión unificada de la salud operativa. Es un servicio excelente para construir sistemas resistentes.
 
+### CloudWatch Logs
+
+Puedes utilizar Amazon CloudWatch Logs para monitorizar, almacenar y acceder a tus archivos de registro desde instancias de Amazon Elastic Compute Cloud (Amazon EC2), AWS CloudTrail, Route 53 y otras fuentes como servidores locales.
+
+Amazon CloudWatch Logs te permite centralizar los logs de todos tus sistemas, aplicaciones y servicios de AWS que utilices, en un único servicio altamente escalable. Luego puedes verlos fácilmente, buscar en ellos códigos de error o patrones específicos, filtrarlos en función de campos concretos o archivarlos de forma segura para futuros análisis.
+
 ### AWS Trusted Advisor
 
 AWS Trusted Advisor es una herramienta online que te proporciona orientación en tiempo real para ayudarte a aprovisionar tus recursos siguiendo las mejores prácticas de AWS sobre optimización de costes, seguridad, tolerancia a fallos, límites de servicio y mejora del rendimiento.
@@ -55,6 +73,10 @@ Piensa en actividad y auditoría específicas de la cuenta; piensa en CloudTrail
 
 Piensa en el historial de cambios, la auditoría y el cumplimiento de recursos específicos; piensa en Config.
 
+### AWS Snowball
+
+AWS Snowball, que forma parte de la familia AWS Snow, es un dispositivo de migración de datos e informática de borde. Si tienes grandes cantidades de datos que necesitas migrar a AWS, la transferencia de datos offline con AWS Snowball puede superar el reto del ancho de banda limitado, y evitar la necesidad de alquilar ancho de banda adicional. AWS Snowball mueve terabytes de datos en aproximadamente una semana. Puedes utilizarlo para mover cosas como bases de datos, copias de seguridad, archivos, registros sanitarios, conjuntos de datos analíticos, datos de sensores IoT y contenido multimedia, especialmente cuando las condiciones de la red impiden plazos realistas para transferir grandes cantidades de datos tanto dentro como fuera de AWS.
+
 ### El AWS Well-Architected Framework
 
 proporciona orientación sobre la creación de infraestructuras seguras, de alto rendimiento, resistentes y eficientes para aplicaciones basadas en el Cloud. ***Basado en seis pilares***:
@@ -66,7 +88,27 @@ proporciona orientación sobre la creación de infraestructuras seguras, de alto
 - **optimización de costes**
 - **sostenibilidad**
 
+#### Excelencia operativa
+
+El AWS Well-Architected Framework te ayuda a comprender los pros y los contras de las decisiones que tomas al crear sistemas en AWS. Utilizando el Framework aprenderás las mejores prácticas de arquitectura para diseñar y operar sistemas fiables, seguros, eficientes y rentables en el Cloud. Te proporciona una forma de medir sistemáticamente tus arquitecturas con respecto a las mejores prácticas e identificar áreas de mejora.
+
+El AWS Well-Architected Framework se basa en seis pilares: Excelencia Operativa, Seguridad, Fiabilidad, Eficiencia de Rendimiento, Optimización de Costes y Sostenibilidad.
+
+El pilar de la excelencia operativa incluye la capacidad de ejecutar y supervisar sistemas para aportar valor empresarial y mejorar continuamente los procesos y procedimientos de apoyo. En el Cloud, puedes aplicar a todo tu entorno la misma disciplina de ingeniería que utilizas para el código de las aplicaciones. Puedes definir toda tu carga de trabajo (aplicaciones, infraestructura) como código y actualizarla con código. Puedes implementar tus procedimientos operativos como código y automatizar su ejecución activándolos en respuesta a eventos.
+
+#### Optimización de costes
+
+La optimización de costes se centra en evitar costes innecesarios. Los temas clave incluyen comprender y controlar dónde se gasta el dinero, seleccionar los tipos de recursos más adecuados y el número correcto, analizar el gasto a lo largo del tiempo y escalar para satisfacer las necesidades de la empresa sin gastar más de la cuenta.
+
 el Framework proporciona un enfoque coherente para que clientes y socios evalúen arquitecturas e implanten diseños que escalen con el tiempo.
+
+#### Eficiencia del rendimiento
+
+El pilar de la eficiencia del rendimiento se centra en el uso eficiente de los recursos informáticos y de TI. Los temas clave incluyen la selección de los tipos y tamaños de recursos adecuados en función de los requisitos de la carga de trabajo, la supervisión del rendimiento y la toma de decisiones informadas para mantener la eficiencia a medida que evolucionan las necesidades empresariales.
+
+#### Seguridad
+
+El pilar de la seguridad se centra en la protección de la información y los sistemas. Los temas clave incluyen la confidencialidad e integridad de los datos, la identificación y gestión de quién puede hacer qué con la gestión de privilegios, la protección de los sistemas y el establecimiento de controles para detectar eventos de seguridad.
 
 ### Amazon Route 53
 
@@ -193,6 +235,19 @@ AWS Compute Optimizer admite recomendaciones de IOPS y rendimiento para volúmen
 
 AWS Compute Optimizer te ayuda a optimizar dos categorías de funciones Lambda. La primera categoría incluye funciones Lambda que pueden estar sobreaprovisionadas en tamaños de memoria. La segunda categoría incluye funciones Lambda de cálculo intensivo que pueden beneficiarse de potencia de CPU adicional.
 
+### Pruebas de penetración
+
+Los clientes de AWS pueden llevar a cabo evaluaciones de seguridad o pruebas de penetración contra su infraestructura de AWS sin aprobación previa para unos pocos servicios comunes de AWS. Los clientes no pueden realizar evaluaciones de seguridad de la infraestructura de AWS, ni de los propios servicios de AWS.
+
+### Prueba de estrés de la red
+
+AWS considera "prueba de estrés de red" cuando una prueba envía un gran volumen de tráfico legítimo o de prueba a una aplicación de destino específica. Se espera que el endpoint y la infraestructura sean capaces de manejar este tráfico.
+
+### Centro de conocimiento de AWS (AWS re:post)
+
+El centro de conocimiento de AWS contiene las preguntas y solicitudes más frecuentes y comunes y las soluciones que AWS proporciona para las mismas. Este debería ser el punto de partida para buscar una solución o resolver un problema con los servicios de AWS.
+
+
 ## Tecnologia
 
 ### Amazon Simple Queue Service (SQS)
@@ -218,6 +273,10 @@ AWS Lambda te permite ejecutar código sin aprovisionar ni administrar servidore
 ### AWS Step Functions
 
 AWS Step Functions te permite coordinar varios servicios de AWS en flujos de trabajo sin servidor. Puedes diseñar y ejecutar flujos de trabajo que unan servicios como AWS Lambda, AWS Glue y Amazon SageMaker. AWS Step Functions no puede utilizarse para desacoplar componentes de una aplicación basada en microservicios.
+
+### Amazon ElastiCache
+
+Amazon ElastiCache te permite configurar, ejecutar y escalar sin problemas almacenes de datos en memoria populares compatibles con código abierto en el Cloud. Crea aplicaciones de uso intensivo de datos o aumenta el rendimiento de tus bases de datos existentes recuperando datos de almacenes de datos en memoria de alto rendimiento y baja latencia. Amazon ElastiCache es una opción popular para casos de uso en tiempo real como almacenamiento en caché, almacenes de sesión, juegos, servicios geoespaciales, análisis en tiempo real y colas. ElastiCache no puede utilizarse para el procesamiento analítico en línea.
 
 ### Amazon DynamoDB
 
@@ -247,6 +306,16 @@ Amazon Simple Storage Service (Amazon S3) es un servicio de almacenamiento de ob
 
 Amazon Elastic File System (Amazon EFS) proporciona un sistema de archivos NFS elástico, sencillo, escalable y totalmente administrado para su uso con los servicios en el Cloud de AWS y los recursos locales. Está diseñado para escalar bajo demanda a petabytes sin interrumpir las aplicaciones, creciendo y reduciéndose automáticamente a medida que añades y eliminas archivos, eliminando la necesidad de aprovisionar y administrar la capacidad para acomodar el crecimiento.
 
+Pagarás una tarifa cada vez que leas o escribas datos almacenados en la clase de almacenamiento Amazon Elastic File System (Amazon EFS) - Infrequent Access
+
+La clase de almacenamiento Amazon Elastic File System (Amazon EFS) - Acceso poco frecuente está optimizada en cuanto a costes para los archivos a los que se accede con menos frecuencia. Los datos almacenados en la clase de almacenamiento Amazon Elastic File System (Amazon EFS) - Acceso poco frecuente cuestan menos que la estándar y pagarás una cuota cada vez que leas o escribas en un archivo.
+
+### Versionado de Amazon S3
+
+El versionado es un medio de mantener múltiples variantes de un objeto en el mismo bucket. Puedes utilizar el versionado para conservar, recuperar y restaurar cada versión de cada objeto almacenado en tu bucket de Amazon S3. Con el versionado, puedes recuperarte fácilmente tanto de acciones no intencionadas del usuario como de fallos de la aplicación.
+
+Los buckets con versiones habilitadas te permiten recuperar objetos en caso de borrado o sobrescritura accidental. Por ejemplo: si borras un objeto, en lugar de eliminarlo permanentemente, Amazon S3 inserta un marcador de borrado, que se convierte en la versión actual del objeto.
+
 ### S3 Standard-Infrequent Access (S3 Standard-IA)
 
 Amazon S3 Standard-Infrequent Access (S3 Standard-IA) es para datos a los que se accede con menos frecuencia, pero que requieren un acceso rápido cuando se necesitan. S3 Standard-Infrequent Access (S3 Standard-IA) ofrece la alta durabilidad, el alto rendimiento y la baja latencia de S3 Standard, con un bajo precio por GB de almacenamiento y por GB de recuperación. Esta combinación de bajo coste y alto rendimiento hace que S3 Standard-Infrequent Access (S3 Standard-IA) sea ideal para almacenamiento a largo plazo, copias de seguridad y como almacén de datos para archivos de recuperación ante desastres.
@@ -274,6 +343,12 @@ Amazon EMR es la plataforma de big data en el Cloud líder del sector para proce
 ### AWS Elastic Beanstalk
 
 AWS Elastic Beanstalk es un servicio fácil de usar para implementar y escalar aplicaciones y servicios web. Sólo tienes que subir tu código y Elastic Beanstalk se encarga automáticamente del despliegue, desde el aprovisionamiento de capacidad, el equilibrio de carga y el autoescalado hasta la monitorización del estado de la aplicación. AWS Elastic Beanstalk aprovisiona servidores, por lo que no es un servicio sin servidor.
+
+### Amazon Kendra
+
+Amazon Kendra es un servicio de búsqueda inteligente impulsado por aprendizaje automático. Kendra reimagina la búsqueda empresarial para tus sitios web y aplicaciones, de forma que tus empleados y clientes puedan encontrar fácilmente el contenido que buscan, incluso cuando está disperso por múltiples ubicaciones y repositorios de contenido dentro de tu organización.
+
+Con Amazon Kendra, puedes dejar de buscar entre montones de datos no estructurados y descubrir las respuestas adecuadas a tus preguntas, cuando las necesites. Amazon Kendra es un servicio totalmente administrado, por lo que no hay servidores que aprovisionar ni modelos de aprendizaje automático que crear, entrenar o implementar. Amazon Kendra admite datos no estructurados y semiestructurados en formatos .html, MS Office (.doc, .ppt), PDF y texto.
 
 ### Amazon Transcribe
 
@@ -352,7 +427,6 @@ Una Instancia bajo demanda es una instancia que utilizas bajo demanda. Tienes pl
 
 Las instancias spot de Amazon EC2 te permiten aprovechar la capacidad EC2 no utilizada en el Cloud de AWS. Las instancias spot están disponibles con un descuento de hasta el 90% en comparación con los precios de las instancias bajo demanda. Puedes utilizar instancias spot para diversas aplicaciones sin estado, tolerantes a fallos o flexibles, como big data, cargas de trabajo en contenedores, CI/CD, servidores web, informática de alto rendimiento (HPC) y otras cargas de trabajo de prueba y desarrollo.
 
-
 ### Amazon Redshift
 
 Amazon Redshift es un producto de almacén de datos en el Cloud a escala de petabytes totalmente administrado, diseñado para el almacenamiento y análisis de conjuntos de datos a gran escala.
@@ -374,8 +448,6 @@ AWS Secrets Manager te ayuda a proteger los secretos necesarios para acceder a t
 Un almacén de instancia proporciona almacenamiento temporal a nivel de bloque para tu instancia. Este almacenamiento se encuentra en discos conectados físicamente al ordenador anfitrión. Es una buena opción cuando necesitas un almacenamiento con una latencia muy baja, pero no necesitas que los datos persistan cuando finalice la instancia o puedes aprovechar las arquitecturas tolerantes a fallos. Para este caso de uso, la propia aplicación de cálculo tiene una arquitectura tolerante a fallos, por lo que puede gestionar automáticamente cualquier fallo de los volúmenes del almacén de instancias de EC2
 
 ![inst_alm](img/inst_alm.jpeg)
-
-
 
 ### AWS Storage Gateway
 
@@ -418,6 +490,10 @@ AWS Storage Gateway es un servicio de almacenamiento en el Cloud híbrido que co
 
 El servicio AWS Storage Gateway proporciona tres tipos diferentes de puertas de enlace (Tape Gateway, File Gateway y Volume Gateway) que conectan sin problemas las aplicaciones locales con el almacenamiento en el Cloud, almacenando los datos en caché local para un acceso de baja latencia.
 
+#### AWS Transit Gateway
+
+AWS Transit Gateway conecta las Amazon Virtual Private Cloud (Amazon VPC) y las redes locales a través de un hub central. Esto simplifica tu red y pone fin a las complejas relaciones de interconexión. Actúa como un router en el Cloud: cada nueva conexión sólo se realiza una vez. A medida que te expandes globalmente, el peering entre regiones conecta las puertas de enlace de tránsito de AWS utilizando la red global de AWS. Tus datos se cifran automáticamente y nunca viajan por el Internet público.
+
 ### Amazon Elastic Container Registry (ECR)
 
 Amazon Elastic Container Registry (Amazon ECR) puede utilizarse para almacenar, administrar e implementar imágenes de contenedores Docker. Amazon Elastic Container Registry (Amazon ECR) elimina la necesidad de operar tus repositorios de contenedores. Puedes extraer tus imágenes Docker de Amazon Elastic Container Registry (Amazon ECR) y ejecutarlas en Amazon Elastic Container Service (Amazon ECS).
@@ -452,6 +528,31 @@ AWS Service Catalog permite a las organizaciones crear y administrar catálogos 
 
 ## Seguridad
 
+### IAM Effect, Action
+
+La mayoría de las políticas se almacenan en AWS como documentos JSON. Las políticas basadas en la identidad y las políticas utilizadas para establecer límites de permisos son documentos de política JSON que adjuntas a un usuario o rol. Las políticas basadas en recursos son documentos de política JSON que adjuntas a un recurso.
+
+Un documento de política JSON incluye estos elementos:
+
+Información opcional sobre toda la política en la parte superior del documento
+Una o más declaraciones individuales
+Cada declaración incluye información sobre un único permiso. La información de una declaración está contenida en una serie de elementos.
+
+Versión - Especifica la versión del lenguaje de la política que quieres utilizar. Como mejor práctica, utiliza la última versión de 2012-10-17.
+
+Declaración - Utiliza este elemento principal de la política como contenedor de los siguientes elementos. Puedes incluir más de una declaración en una política.
+
+Sid (Opcional) - Incluye un ID de declaración opcional para diferenciar tus declaraciones.
+
+Effect - Utiliza ALLOW o DENY para indicar si la política permite o deniega el acceso.
+
+Principal (Obligatorio sólo en algunas circunstancias) - Si creas una política basada en recursos, debes indicar la cuenta, usuario, rol o usuario federado al que quieres permitir o denegar el acceso. Si estás creando una política de permisos IAM para adjuntarla a un usuario o rol, no puedes incluir este elemento. El principal está implícito como ese usuario o rol.
+
+Action - Incluye una lista de acciones que la política permite o deniega.
+
+Resource (Obligatorio sólo en algunas circunstancias) - Si creas una política de permisos IAM, debes especificar una lista de recursos a los que se aplican las acciones. Si creas una política basada en recursos, este elemento es opcional. Si no incluyes este elemento, el recurso al que se aplica la acción es el recurso al que se adjunta la política.
+
+Condition (Opcional) - Especifica las circunstancias en las que la política concede el permiso.
 ### Gestión del rendimiento y la capacidad
 
 El AWS Cloud Adoption Framework (AWS CAF) aprovecha la experiencia y las mejores prácticas de AWS para ayudarte a transformar digitalmente y acelerar tus resultados empresariales mediante el uso innovador de AWS. Utiliza el CAF de AWS para identificar y priorizar las oportunidades de transformación, evaluar y mejorar tu preparación para el Cloud y evolucionar iterativamente tu hoja de ruta de transformación.
@@ -528,9 +629,29 @@ Las organizaciones pueden obtener ayuda de la red de socios de AWS (APN) para id
 
 ## Costos
 
+### Etiquetas de asignacion de costes
+
+Una etiqueta de asignación de costes es una etiqueta que tú o AWS asignáis a un recurso de AWS. Cada etiqueta consta de una clave y un valor. Para cada recurso, cada clave de etiqueta debe ser única, y cada clave de etiqueta sólo puede tener un valor. Puedes utilizar etiquetas para organizar tus recursos, y etiquetas de asignación de costes para realizar un seguimiento detallado de tus costes de AWS.
+
+AWS proporciona dos tipos de etiquetas de asignación de costes: las generadas por AWS y las definidas por el usuario. AWS define, crea y aplica las etiquetas generadas por AWS por ti, y tú defines, creas y aplicas las etiquetas definidas por el usuario. Debes activar ambos tipos de etiquetas por separado antes de que puedan aparecer en el AWS Cost Explorer o en un informe de asignación de costes
+
+### Cuentas separadas
+
+Crea cuentas de AWS separadas para entornos de desarrollo y producción para recibir facturas separadas
+
+Cada cuenta de AWS proporciona su propia factura a final de mes. Puedes obtener facturas separadas para los entornos de desarrollo y producción configurando cuentas de AWS distintas para cada entorno.
+
 ### AWS Budgets
 
 AWS Budgets te permite establecer presupuestos personalizados para realizar un seguimiento de tu coste y uso desde los casos de uso más sencillos a los más complejos. Con AWS Budgets, puedes elegir que se te avise por correo electrónico o notificación SNS cuando el coste y el uso reales o previstos superen el umbral de tu presupuesto, o cuando la utilización o cobertura reales de tu RI y planes de ahorro caigan por debajo del umbral deseado. Con las acciones de AWS Budgets, también puedes configurar acciones específicas para responder al estado de coste y uso en tus cuentas, de modo que si tu coste o uso supera o se prevé que supere tu umbral, se puedan ejecutar acciones automáticamente o con tu aprobación para reducir el gasto excesivo involuntario.
+
+ Hay cuatro tipos de presupuesto diferentes que puedes crear en AWS Budgets: **presupuesto de costes**, **presupuesto de uso**, **presupuesto de reservas** y **presupuesto de planes de ahorro**.
+
+**Presupuesto de costes** - Te ayuda a planificar cuánto quieres gastar en un servicio.
+
+**Presupuesto de uso** - Te ayuda a planificar cuánto quieres utilizar uno o varios servicios.
+
+**Presupuesto de reserva** - Esto te ayuda a hacer un seguimiento del uso de tus instancias reservadas (RI). Dos formas de hacerlo - Presupuestos de utilización de instancias reservadas (RI) (Esto te permite ver si tus instancias reservadas (RI) están sin utilizar o infrautilizadas), Presupuestos de cobertura de instancias reservadas (RI) (Esto te permite ver qué parte del uso de tu instancia está cubierta por una reserva).
 
 ### AWS Cost Explorer
 
